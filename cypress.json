@@ -1,6 +1,9 @@
 {
-  "baseUrl": "http://localhost:3000",
+  "baseUrl": "http://localhost:3000/sudoku-applitools",
   "experimentalComponentTesting": false,
   "componentFolder": "src",
-  "testFiles": "**/*spec.js"
+  "testFiles": "**/*spec.js",
+  "env": {
+    "coverage": false
+  }
 }
