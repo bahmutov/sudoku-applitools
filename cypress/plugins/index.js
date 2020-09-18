@@ -1,3 +1,5 @@
+require('@applitools/eyes-cypress')(module)
+
 module.exports = (on, config) => {
   require('cypress-react-unit-test/plugins/react-scripts')(on, config)
   // IMPORTANT to return the config object
