@@ -22,7 +22,7 @@ describe('App', () => {
     mount(<App />)
     cy.get('.game__cell--filled').should('have.length', 45)
     // the visual snapshot will be the same
-    cy.visualSnapshot()
+    // cy.visualSnapshot()
   })
 
   it('plays one move', () => {
@@ -35,7 +35,7 @@ describe('App', () => {
     cy.get('.game__cell')
       .first()
       .should('have.class', 'game__cell--highlightselected')
-    cy.visualSnapshot()
+    // cy.visualSnapshot()
   })
 
   it('plays to win', () => {
@@ -48,7 +48,7 @@ describe('App', () => {
       .as('getUniqueSudoku')
     cy.clock()
     mount(<App />)
-    cy.visualSnapshot('1 game is almost solved')
+    // cy.visualSnapshot('1 game is almost solved')
 
     // win the game
     cy.get('.game__cell').first().click()
@@ -57,7 +57,7 @@ describe('App', () => {
 
     // winning message displayed
     cy.get('.overlay__text').should('be.visible')
-    cy.visualSnapshot('2 game is solved')
+    // cy.visualSnapshot('2 game is solved')
 
     // clicking the overlay starts the new game
     cy.get('@getUniqueSudoku').should('have.been.calledOnce')
@@ -77,7 +77,7 @@ describe('App', () => {
         .as('getUniqueSudoku')
       cy.clock()
       mount(<App />)
-      cy.visualSnapshot('1 game is almost solved')
+      // cy.visualSnapshot('1 game is almost solved')
 
       // win the game
       cy.get('.game__cell').first().click()
@@ -86,7 +86,7 @@ describe('App', () => {
 
       // winning message displayed
       cy.get('.overlay__text').should('be.visible')
-      cy.visualSnapshot('2 game is solved')
+      // cy.visualSnapshot('2 game is solved')
     }
 
     // using different viewport resolutions run the same test
