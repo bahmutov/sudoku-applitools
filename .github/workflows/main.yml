@@ -12,6 +12,8 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           start: npm start
+        env:
+          APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
 
       # build the production site
       - name: Build site 🏗
