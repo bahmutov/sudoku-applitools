@@ -12,3 +12,15 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           start: npm start
+
+      # build the production site
+      - name: Build site 🏗
+        run: npm run build
+
+      # push static site, but only from the default branch
+      - name: Publish site 🌐
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
