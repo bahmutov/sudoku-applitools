@@ -35,7 +35,7 @@ describe('Timer', () => {
       </SudokuContext.Provider>,
     )
     cy.contains('.status__time', '00:00')
-    // cy.visualSnapshot()
+    cy.eyesCheckWindow()
   })
 
   it('shows the timer after 700 seconds', () => {
@@ -51,7 +51,7 @@ describe('Timer', () => {
       </SudokuContext.Provider>,
     )
     cy.contains('.status__time', '11:40')
-    // cy.visualSnapshot()
+    cy.eyesCheckWindow()
   })
 
   it.skip('shows the timer after 700 seconds (using cy.tick)', () => {

@@ -26,3 +26,4 @@ yarn-error.log*
 __diff_output__
 cypress/videos
 cypress/screenshots
+.as-a.ini

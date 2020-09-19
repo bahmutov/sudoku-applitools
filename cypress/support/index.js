@@ -20,11 +20,14 @@ if (Cypress.env('APPLITOOLS_SETUP')) {
   })
 } else {
   // do nothing for visual test commands
-  Cypress.Commands.overwrite('eyesCheckWindow', (eyesCheckWindow, options) => {
-    if (options.tag) {
-      cy.log(`👀 skipping screenshot **${options.tag}**`)
-    } else {
-      cy.log(`👀 skipping screenshot`)
-    }
-  })
+  Cypress.Commands.overwrite(
+    'eyesCheckWindow',
+    (eyesCheckWindow, options = {}) => {
+      if (options.tag) {
+        cy.log(`👀 skipping screenshot **${options.tag}**`)
+      } else {
+        cy.log(`👀 skipping screenshot`)
+      }
+    },
+  )
 }

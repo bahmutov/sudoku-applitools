@@ -22,7 +22,7 @@ describe('App', () => {
     mount(<App />)
     cy.get('.game__cell--filled').should('have.length', 45)
     // the visual snapshot will be the same
-    // cy.visualSnapshot()
+    cy.eyesCheckWindow()
   })
 
   it('plays one move', () => {
@@ -35,7 +35,7 @@ describe('App', () => {
     cy.get('.game__cell')
       .first()
       .should('have.class', 'game__cell--highlightselected')
-    // cy.visualSnapshot()
+    cy.eyesCheckWindow()
   })
 
   it('plays to win', () => {
@@ -48,7 +48,7 @@ describe('App', () => {
       .as('getUniqueSudoku')
     cy.clock()
     mount(<App />)
-    // cy.visualSnapshot('1 game is almost solved')
+    cy.eyesCheckWindow({ tag: '1 game is almost solved' })
 
     // win the game
     cy.get('.game__cell').first().click()
@@ -57,7 +57,7 @@ describe('App', () => {
 
     // winning message displayed
     cy.get('.overlay__text').should('be.visible')
-    // cy.visualSnapshot('2 game is solved')
+    cy.eyesCheckWindow({ tag: '2 game is solved' })
 
     // clicking the overlay starts the new game
     cy.get('@getUniqueSudoku').should('have.been.calledOnce')
@@ -66,7 +66,7 @@ describe('App', () => {
     cy.get('@getUniqueSudoku').should('have.been.calledTwice')
   })
 
-  context('works at resolution', () => {
+  context.skip('works at resolution', () => {
     const playGame = () => {
       // start with all but the first cell filled with solved array
       const almostSolved = [...solvedArray]

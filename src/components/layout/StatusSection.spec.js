@@ -18,8 +18,7 @@ describe('StatusSection', () => {
       .find('input[type=checkbox]')
       .should('not.be.checked')
 
-    // if you want to use full test title + suffix
-    // take first snapshot
+    cy.eyesCheckWindow({ tag: 'default' })
 
     cy.log('**turn both modes on**')
     cy.get('.status__action-mistakes-mode')
@@ -34,6 +33,6 @@ describe('StatusSection', () => {
       .find('input[type=checkbox]')
       .should('be.checked')
 
-    // take second snapshot
+    cy.eyesCheckWindow({ tag: 'both modes' })
   })
 })
