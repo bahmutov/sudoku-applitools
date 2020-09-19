@@ -2,6 +2,23 @@
 
 > Visual [component testing for React](https://github.com/bahmutov/cypress-react-unit-test) using [Cypress](https://www.cypress.io/) and [Applitools](https://applitools.com/)
 
+## Install and run
+
+```
+npm install
+# starts the web app and Cypress
+npm run dev
+```
+
+If you want to run just the component tests, then you do not need to start the web application and you can do
+
+```
+npm install
+npx cypress open
+```
+
+And pick the component spec files one by one.
+
 ## Running locally
 
 In [cypress/plugins/index.js](cypress/plugins/index.js) we check if `APPLITOOLS_API_KEY` is set. If not we set an environment variable to be read in the [cypress/support/index.js](cypress/support/index.js) file. If the variable is NOT set, we overwrite the `cy.eyesCheckWindow` command with an empty `log` statement (and skip `cy.eyesOpen` and `cy.eyesClose`)
