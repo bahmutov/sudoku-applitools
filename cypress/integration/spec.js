@@ -8,17 +8,30 @@ describe('Sudoku', () => {
     cy.contains('.status__time', '00:00')
     cy.contains('.status__difficulty-select', 'Easy')
 
-    cy.eyesCheckWindow({ tag: 'App' })
+    // this visual check will fail because
+    // every test has a different random board
+    // https://www.npmjs.com/package/@applitools/eyes-cypress#usage
+    // cy.eyesCheckWindow({ tag: 'App' })
 
     // ignore the contents of the board's cells
-    // const oneToNine = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    const oneToNine = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    cy.eyesCheckWindow({
+      tag: 'App',
+      ignore: oneToNine.flatMap((row) =>
+        oneToNine.map((cell) => ({
+          selector: `tr.game__row:nth-child(${row}) > td:nth-child(${cell})`,
+        })),
+      ),
+    })
+
+    // ignore the contents of the board's cells
     // cy.eyesCheckWindow({
     //   tag: 'App',
-    //   ignore: oneToNine.flatMap((row) =>
-    //     oneToNine.map((cell) => ({
-    //       selector: `tr.game__row:nth-child(${row}) > td:nth-child(${cell})`,
-    //     })),
-    //   ),
+    //   ignore: [
+    //     {
+    //       selector: '.game__cell',
+    //     },
+    //   ],
     // })
   })
 })
