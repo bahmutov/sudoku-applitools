@@ -13,7 +13,7 @@ describe('App', () => {
       solvedArray,
     ])
 
-    cy.clock()
+    // cy.clock()
     mount(<App />)
 
     // functional assertion
@@ -26,7 +26,7 @@ describe('App', () => {
   it('plays one move', () => {
     // stub method import using JSON objects
     cy.stub(UniqueSudoku, 'getUniqueSudoku').returns([initArray, solvedArray])
-    cy.clock()
+    // cy.clock()
     mount(<App />)
 
     cy.get('.game__cell').first().click()
@@ -49,7 +49,7 @@ describe('App', () => {
     cy.stub(UniqueSudoku, 'getUniqueSudoku')
       .returns([almostSolved, solvedArray])
       .as('getUniqueSudoku')
-    cy.clock()
+    // cy.clock()
     mount(<App />)
 
     // visual assertion
