@@ -20,7 +20,9 @@
   },
   "homepage": "https://glebbahmutov.com/sudoku-applitools/",
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "globals": {"cy": "readonly", "Cypress": "readonly"},
+    "env": {"mocha": true}
   },
   "browserslist": {
     "production": [
