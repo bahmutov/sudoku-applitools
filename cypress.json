@@ -5,5 +5,7 @@
   "testFiles": "**/*spec.js",
   "env": {
     "coverage": false
-  }
+  },
+  "viewportWidth": 600,
+  "viewportHeight": 750
 }

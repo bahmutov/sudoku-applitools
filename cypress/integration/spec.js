@@ -8,14 +8,15 @@ describe('Sudoku', () => {
     cy.contains('.status__time', '00:00')
     cy.contains('.status__difficulty-select', 'Easy')
 
-    const oneToNine = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    cy.eyesCheckWindow({
-      tag: 'App',
-      ignore: oneToNine.flatMap((row) =>
-        oneToNine.map((cell) => ({
-          selector: `tr.game__row:nth-child(${row}) > td:nth-child(${cell})`,
-        })),
-      ),
-    })
+    // ignore the contents of the board's cells
+    // const oneToNine = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    // cy.eyesCheckWindow({
+    //   tag: 'App',
+    //   ignore: oneToNine.flatMap((row) =>
+    //     oneToNine.map((cell) => ({
+    //       selector: `tr.game__row:nth-child(${row}) > td:nth-child(${cell})`,
+    //     })),
+    //   ),
+    // })
   })
 })

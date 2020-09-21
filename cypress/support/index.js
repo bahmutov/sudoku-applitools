@@ -10,12 +10,18 @@ if (Cypress.env('APPLITOOLS_SETUP')) {
       appName: 'Sudoku',
       batchName: 'Sudoku',
       browser: [
-        { width: 800, height: 600, name: 'chrome' },
-        { width: 1024, height: 768, name: 'chrome' },
-        { width: 1920, height: 1080, name: 'chrome' },
-        { width: 800, height: 600, name: 'firefox' },
-        { deviceName: 'iPhone X' },
-        { deviceName: 'iPad' },
+        // 3 main resolutions in our Sudoku app
+        { width: 1024, height: 768, name: 'chrome' }, // desktop
+        { width: 600, height: 700, name: 'chrome' }, // tablet
+        { width: 300, height: 600, name: 'firefox' }, // mobile
+
+        // or list a whole bunch!
+        // { width: 1024, height: 768, name: 'chrome' },
+        // { width: 800, height: 600, name: 'chrome' },
+        // { width: 1920, height: 1080, name: 'chrome' },
+        // { width: 800, height: 600, name: 'firefox' },
+        // { deviceName: 'iPhone X' },
+        // { deviceName: 'iPad' },
       ],
     })
   })
