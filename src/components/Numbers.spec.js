@@ -6,6 +6,8 @@ import '../App.css'
 import { SudokuContext } from '../context/SudokuContext'
 
 describe('Numbers', () => {
+
+  // functional assertions
   it('shows numbers', () => {
     mount(
       <div className="innercontainer">
@@ -14,6 +16,7 @@ describe('Numbers', () => {
         </section>
       </div>,
     )
+
     cy.get('.status__number').should('have.length', 9)
   })
 
@@ -31,6 +34,7 @@ describe('Numbers', () => {
     })
   })
 
+  // visual assertions
   it('shows all numbers', () => {
     mount(
       <div className="innercontainer">
@@ -39,9 +43,6 @@ describe('Numbers', () => {
         </section>
       </div>,
     )
-    // use a single image snapshot after making sure
-    // the component has been rendered into the DOM
-    cy.get('.status__number').should('have.length', 9)
     cy.eyesCheckWindow({ tag: 'all numbers' })
   })
 
@@ -67,10 +68,13 @@ describe('Numbers', () => {
         </div>
       </SudokuContext.Provider>,
     )
+
+    // functional assertion
     cy.contains('.status__number', '4').should(
       'have.class',
       'status__number--selected',
-    )
+      )
+    // visual assertion
     cy.eyesCheckWindow({ tag: 'selected 4' })
   })
 })

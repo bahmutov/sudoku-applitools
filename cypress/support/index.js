@@ -8,10 +8,15 @@ if (Cypress.env('APPLITOOLS_SETUP')) {
   beforeEach(() => {
     cy.eyesOpen({
       appName: 'Sudoku',
-      browser: {
-        width: cy.state('viewportWidth'),
-        height: cy.state('viewportHeight'),
-      },
+      batchName: 'Sudoku',
+      browser: [
+        { width: 800, height: 600, name: 'chrome' },
+        { width: 1024, height: 768, name: 'chrome' },
+        { width: 1920, height: 1080, name: 'chrome' },
+        { width: 800, height: 600, name: 'firefox' },
+        { deviceName: 'iPhone X' },
+        { deviceName: 'iPad' },
+      ],
     })
   })
 

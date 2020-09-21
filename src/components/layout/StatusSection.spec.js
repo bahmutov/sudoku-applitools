@@ -14,25 +14,32 @@ describe('StatusSection', () => {
     // let's wait for everything to render
     cy.wait(500)
 
+    // functional assertion
     cy.get('.status__action-mistakes-mode')
       .find('input[type=checkbox]')
       .should('not.be.checked')
 
-    cy.eyesCheckWindow({ tag: 'default' })
+    // visual assertion
+    cy.eyesCheckWindow({ tag: 'mistakes mode should not be checked' })
 
-    cy.log('**turn both modes on**')
+    cy.log('**turn mistakes mode on**')
+    cy.get('.status__action-mistakes-mode').click()
+
+    // functional assertion
     cy.get('.status__action-mistakes-mode')
-      .click()
       .find('input[type=checkbox]')
       .should('be.checked')
     cy.get('.status__action-fast-mode')
       .find('input[type=checkbox]')
       .should('not.be.checked')
-    cy.get('.status__action-fast-mode')
-      .click()
-      .find('input[type=checkbox]')
-      .should('be.checked')
 
-    cy.eyesCheckWindow({ tag: 'both modes' })
+    cy.log('**turn fast mode on**')
+    cy.get('.status__action-fast-mode').click()
+
+    // functional assertion
+    cy.get('.status__action-fast-mode').find('input[type=checkbox]').should('be.checked')
+
+    // visual assertion
+    cy.eyesCheckWindow({ tag: 'both modes on' })
   })
 })

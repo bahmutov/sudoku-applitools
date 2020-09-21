@@ -34,8 +34,11 @@ describe('Timer', () => {
         </div>
       </SudokuContext.Provider>,
     )
+
+    // functional assertion
     cy.contains('.status__time', '00:00')
-    cy.eyesCheckWindow()
+    // visual assertion
+    cy.eyesCheckWindow({tag: 'timer at zero'})
   })
 
   it('shows the timer after 700 seconds', () => {
@@ -50,8 +53,11 @@ describe('Timer', () => {
         </div>
       </SudokuContext.Provider>,
     )
+
+    // functional assertion
     cy.contains('.status__time', '11:40')
-    cy.eyesCheckWindow()
+    // visual assertion
+    cy.eyesCheckWindow({tag: 'timer at 11:40'})
   })
 
   it.skip('shows the timer after 700 seconds (using cy.tick)', () => {

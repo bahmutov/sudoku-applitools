@@ -8,19 +8,14 @@ describe('Sudoku', () => {
     cy.contains('.status__time', '00:00')
     cy.contains('.status__difficulty-select', 'Easy')
 
-    // how to ensure the random numbers on the board
-    // are not failing the visual comparison?
-    // https://github.com/bahmutov/sudoku-applitools/issues/3
-    // cy.eyesCheckWindow({ tag: 'desktop' })
-
-    cy.viewport(600, 800)
-    cy.get('.game__cell--filled').should('have.length', 45)
-
-    // how to vary the resolution of individual screenshots?
-    // cy.eyesCheckWindow({ tag: 'tablet' })
-
-    cy.viewport(300, 600)
-    cy.get('.game__cell--filled').should('have.length', 45)
-    // cy.eyesCheckWindow({ tag: 'mobile' })
+    const oneToNine = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    cy.eyesCheckWindow({
+      tag: 'App',
+      ignore: oneToNine.flatMap((row) =>
+        oneToNine.map((cell) => ({
+          selector: `tr.game__row:nth-child(${row}) > td:nth-child(${cell})`,
+        })),
+      ),
+    })
   })
 })
