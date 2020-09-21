@@ -181,7 +181,7 @@ body {
 }
 
 .status__difficulty {
-  /* position: relative; */
+  position: relative;
   top: 39px;
   left: 20px;
 }
