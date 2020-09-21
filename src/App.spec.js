@@ -8,10 +8,7 @@ import solvedArray from '../cypress/fixtures/solved-array.json'
 
 describe('App', () => {
   it('mocks board creation', () => {
-    cy.stub(UniqueSudoku, 'getUniqueSudoku').returns([
-      initArray,
-      solvedArray,
-    ])
+    cy.stub(UniqueSudoku, 'getUniqueSudoku').returns([initArray, solvedArray])
 
     // cy.clock()
     mount(<App />)
@@ -20,7 +17,7 @@ describe('App', () => {
     cy.get('.game__cell--filled').should('have.length', 45)
 
     // visual assertion
-    cy.eyesCheckWindow({tag: 'solved board'})
+    cy.eyesCheckWindow({ tag: 'same board' })
   })
 
   it('plays one move', () => {
@@ -38,7 +35,7 @@ describe('App', () => {
       .should('have.class', 'game__cell--highlightselected')
 
     // visual assertion
-    cy.eyesCheckWindow({tag: 'one move'})
+    cy.eyesCheckWindow({ tag: 'one move' })
   })
 
   it('plays to win', () => {
