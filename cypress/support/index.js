@@ -12,8 +12,8 @@ if (Cypress.env('APPLITOOLS_SETUP')) {
       browser: [
         // 3 main resolutions in our Sudoku app
         { width: 1024, height: 768, name: 'chrome' }, // desktop
-        { width: 600, height: 700, name: 'chrome' }, // tablet
-        { width: 300, height: 600, name: 'firefox' }, // mobile
+        { width: 600, height: 750, name: 'chrome' }, // tablet
+        { width: 450, height: 650, name: 'firefox' }, // mobile
 
         // or list a whole bunch!
         // { width: 1024, height: 768, name: 'chrome' },

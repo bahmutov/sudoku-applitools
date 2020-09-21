@@ -6,6 +6,6 @@
   "env": {
     "coverage": false
   },
-  "viewportWidth": 600,
-  "viewportHeight": 750
+  "viewportWidth": 1024,
+  "viewportHeight": 768
 }
