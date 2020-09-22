@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+/// <reference types="@applitools/eyes-cypress" />
 import React from 'react'
 import { mount } from 'cypress-react-unit-test'
 import { StatusSection } from './StatusSection'
@@ -37,7 +38,9 @@ describe('StatusSection', () => {
     cy.get('.status__action-fast-mode').click()
 
     // functional assertion
-    cy.get('.status__action-fast-mode').find('input[type=checkbox]').should('be.checked')
+    cy.get('.status__action-fast-mode')
+      .find('input[type=checkbox]')
+      .should('be.checked')
 
     // visual assertion
     cy.eyesCheckWindow({ tag: 'both modes on' })

@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+/// <reference types="@applitools/eyes-cypress" />
 import React from 'react'
 import { App } from './App'
 import { mount } from 'cypress-react-unit-test'

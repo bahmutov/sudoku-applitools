@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+/// <reference types="@applitools/eyes-cypress" />
 import React from 'react'
 import { mount } from 'cypress-react-unit-test'
 import { Numbers } from './Numbers'
@@ -6,7 +7,6 @@ import '../App.css'
 import { SudokuContext } from '../context/SudokuContext'
 
 describe('Numbers', () => {
-
   // functional assertions
   it('shows numbers', () => {
     mount(
@@ -73,7 +73,7 @@ describe('Numbers', () => {
     cy.contains('.status__number', '4').should(
       'have.class',
       'status__number--selected',
-      )
+    )
     // visual assertion
     cy.eyesCheckWindow({ tag: 'selected 4' })
   })
