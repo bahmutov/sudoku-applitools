@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+/// <reference types="@applitools/eyes-cypress" />
 import React from 'react'
 import { Timer } from './Timer'
 import { mount } from 'cypress-react-unit-test'
@@ -38,7 +39,7 @@ describe('Timer', () => {
     // functional assertion
     cy.contains('.status__time', '00:00')
     // visual assertion
-    cy.eyesCheckWindow({tag: 'timer at zero'})
+    cy.eyesCheckWindow({ tag: 'timer at zero' })
   })
 
   it('shows the timer after 700 seconds', () => {
@@ -57,7 +58,7 @@ describe('Timer', () => {
     // functional assertion
     cy.contains('.status__time', '11:40')
     // visual assertion
-    cy.eyesCheckWindow({tag: 'timer at 11:40'})
+    cy.eyesCheckWindow({ tag: 'timer at 11:40' })
   })
 
   it.skip('shows the timer after 700 seconds (using cy.tick)', () => {
