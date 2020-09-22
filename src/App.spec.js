@@ -50,7 +50,7 @@ describe('App', () => {
     mount(<App />)
 
     // visual assertion
-    cy.eyesCheckWindow({ tag: ' game is almost solved' })
+    cy.eyesCheckWindow({ tag: '1 game is almost solved' })
 
     // win the game
     cy.get('.game__cell').first().click()
@@ -72,6 +72,6 @@ describe('App', () => {
     cy.get('@getUniqueSudoku').should('have.been.calledTwice')
 
     // visual assertion
-    cy.eyesCheckWindow({ tag: 'start game after solved game' })
+    cy.eyesCheckWindow({ tag: '3 start new game after solved game' })
   })
 })
